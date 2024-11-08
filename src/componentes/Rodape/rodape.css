@@ -1,0 +1,29 @@
+.rodapeApp {
+    background-color: #6278F7;
+    background-image: url(/public/imagens/fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+}
+
+.rodapeApp .redes {
+    display: flex;
+    justify-content: space-between;
+    gap: 34px;
+}
+
+.rodapeApp .redes img {
+    height: 35px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.rodapeApp h3 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}

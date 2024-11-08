@@ -1,0 +1,42 @@
+.lista-suspensa {
+    position: relative;
+}
+.lista-suspensa::after {
+    content: url(/public/imagens/arrow_drop_down.png);
+    position: absolute;
+    right: 30px; /* Ajusta a posição horizontal da seta */
+    top: 63%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.lista-suspensa label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.lista-suspensa select {
+    background-color: #FFF;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    padding: 24px;
+    font-size: 16px;
+    font-family: 'Montserrat', serif;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
+
+.lista-suspensa select option {
+    color: #696969;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
