@@ -8,6 +8,7 @@ const Time = (props) => {
     const cssLinha = { backgroundColor: props.corPrimaria }
     
     return (
+        // Caso a array 'colaboradores' for maior que 0, continuar com o código abaixo.
         props.colaboradores.length > 0 ? <section className='time' style={cssFundo}> 
             <h3>{props.nome}</h3>
             <hr style={cssLinha}/>
@@ -20,6 +21,7 @@ const Time = (props) => {
                 imagem={colaborador.imagem}/> )} 
             </div>
         </section>
+        // Caso a array 'colaboradores' NÃO for maior que 0, não informa o código acima.
         : ''
     )
 }

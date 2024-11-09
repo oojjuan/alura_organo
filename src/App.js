@@ -56,13 +56,17 @@ function App() {
     <div className="App">
       <Banner />
       <Formulario
+      // Vai mapear cada elem. do array, que serão nomeados como 'time'. Após isso, a arrow function ira retornar o nome de cada 'time' e salvar cada uma na propriedade 'times'.
         times={times.map(time => time.nome)}
         aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}
       />
       {times.map(time => <Time
-      key={time.nome} nome={time.nome}
+      // Caso o valor retornado ao componente 'Time' seja '', não renderiza nada
+      key={time.nome}
+      nome={time.nome}
       corPrimaria={time.corPrimaria}
       corSecundaria={time.corSecundaria}
+      // A propriedade irá filtrar a array 'colaboradores' e selecionar apenas o que tiver o valor 'time' igual ao valor 'nome do time'
       colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
       />)}
       <Rodape />
