@@ -52,6 +52,10 @@ function App() {
     setColaboradores(([...colaboradores, colaborador]))
   }
 
+  function deletarColaborador() {
+
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -60,14 +64,16 @@ function App() {
         times={times.map(time => time.nome)}
         aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}
       />
-      {times.map(time => <Time
+      {times.map(time =>
+        <Time
       // Caso o valor retornado ao componente 'Time' seja '', não renderiza nada
-      key={time.nome}
-      nome={time.nome}
-      corPrimaria={time.corPrimaria}
-      corSecundaria={time.corSecundaria}
-      // A propriedade irá filtrar a array 'colaboradores' e selecionar apenas o que tiver o valor 'time' igual ao valor 'nome do time'
-      colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+          key={time.nome}
+          nome={time.nome}
+          corPrimaria={time.corPrimaria}
+          corSecundaria={time.corSecundaria}
+          // A propriedade irá filtrar a array 'colaboradores' e selecionar apenas o que tiver o valor 'time' igual ao valor 'nome do time'
+          colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+          aoDeletar={deletarColaborador}
       />)}
       <Rodape />
     </div>
