@@ -1,12 +1,9 @@
 import './banner.css'
 
-function Banner() {
-    // JSX: parece HTML mas não é!
-    return (
-        <header className="banner">
-            <img src="/imagens/banner.png" alt="banner principal do organo"/>
-        </header>
-    )
+const Banner = () => {
+    return (<header className="cabecalho">
+        <img src='/imagens/banner.png' alt='Logo do Organo'/>
+    </header>)
 }
 
 export default Banner

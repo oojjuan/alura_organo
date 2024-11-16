@@ -1,37 +1,20 @@
-import Card from '../Card'
+import Colaborador from '../Card'
+import hexToRgba from 'hex-to-rgba';
 import './time.css'
 
-const Time = (props) => {
-    
-    const cssFundo = { backgroundColor: props.corSecundaria }
-
-    const cssLinha = { backgroundColor: props.corPrimaria }
-
-    const backgroundImg = { 
-        backgroundImage: `URL(${process.env.PUBLIC_URL}/imagens/fundo.png)`,
-        backgroundRepeat: 'no-repeat',
-        objectFit: 'contain',
-        backgroundPosition: 'center' }
-
-    const style = { ...cssFundo, ...backgroundImg }
-    
+const Time = ({ time, colaboradores, aoDeletar, mudarCor, aoFavoritar }) => {
     return (
-        // Caso a array 'colaboradores' for maior que 0, continuar com o código abaixo.
-        props.colaboradores.length > 0 ? <section className='time' style={style}> 
-            <h3>{props.nome}</h3>
-            <hr style={cssLinha}/>
+
+        colaboradores.length > 0 && <section className='time' style={{ backgroundImage: 'url(/imagens/fundo.png)', backgroundColor: hexToRgba(time.cor, '0.6') }}>
+            <input type='color' className='input-cor' value={time.cor} onChange={evento => {
+                mudarCor(evento.target.value, time.id);
+            }} />
+            <h3 style={{ borderColor: time.cor }}>{time.nome}</h3>
             <div className='colaboradores'>
-                {props.colaboradores.map( colaborador => <Card
-                corDeFundo={props.corPrimaria}
-                key={colaborador.nome}
-                nome={colaborador.nome}
-                cargo={colaborador.cargo}
-                imagem={colaborador.imagem}
-                aoDeletar={() => {}}/> )} 
+                {colaboradores.map((colaborador, indice) => <Colaborador key={indice} colaborador={colaborador} corDeFundo={time.cor} aoDeletar={aoDeletar} aoFavoritar={aoFavoritar} />)}
             </div>
         </section>
-        // Caso a array 'colaboradores' NÃO for maior que 0, não informa o código acima.
-        : ''
+
     )
 }
 
